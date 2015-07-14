@@ -1,14 +1,12 @@
 <?php
-namespace Opifer\CmsBundle\Controller;
+
+namespace Opifer\CmsBundle\Controller\Front;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class SitemapController extends Controller
 {
-    /**
-     * @Route("/sitemap", name="opifer_cms_sitemap_index")
-     */
     public function indexAction()
     {
         $repository = $this->getDoctrine()->getRepository('OpiferCmsBundle:Content');

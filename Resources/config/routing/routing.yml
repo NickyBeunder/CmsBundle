@@ -43,8 +43,8 @@ opifer_redirect:
     prefix: /admin/redirects
 
 opifer_cms_sitemap:
-    resource: "@OpiferCmsBundle/Controller/SitemapController.php"
-    type:     annotation
+    pattern:  /sitemap
+    defaults: { _controller: OpiferCmsBundle:Front/Sitemap:index }
 
 # API routes
 opifer_content:
