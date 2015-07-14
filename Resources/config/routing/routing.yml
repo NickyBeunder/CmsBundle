@@ -42,6 +42,10 @@ opifer_redirect:
     resource: "@OpiferContentBundle/Resources/config/routing.yml"
     prefix: /admin/redirects
 
+opifer_cms_sitemap:
+    resource: "@OpiferCmsBundle/Controller/SitemapController.php"
+    type:     annotation
+
 # API routes
 opifer_content:
     resource: "@OpiferContentBundle/Resources/config/routing.yml"

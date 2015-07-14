@@ -362,4 +362,24 @@ class ContentRepository extends BaseContentRepository
 
         return $query->getResult();
     }
+
+    /**
+     * Retrieve items from database.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function findActiveAddressable()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.directory', 'directory')
+            ->where('c.nestedIn IS NULL')
+            ->Andwhere('c.active = :active')
+            ->setParameter('active', '1')
+            ->orderBy('directory.name', 'ASC')
+            ->getQuery()
+        ;
+
+        return $query->getResult();
+    }
+
 }

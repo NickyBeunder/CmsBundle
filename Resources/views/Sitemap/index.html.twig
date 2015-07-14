@@ -1,0 +1,26 @@
+{% extends "OpiferCmsBundle::base.html.twig" %}
+
+{% block body %}
+    <ul class="list">
+    {% set old_directory = '' %}
+    {% for item in items %}
+        {% if item.directory and item.directory.name != old_directory %}
+            {% if loop.index > 1 %}
+                </ul>
+            {% endif %}
+            <h2><a href="#">{{ item.directory.name }}</a></h2>
+            {% if not loop.last %}
+                <ul>
+            {% endif %}
+            {% set old_directory = item.directory.name %}
+        {% endif %}
+        Add a comment to this line
+
+        {% if item.slug is defined %}
+            <li>
+                <a href="{{ item.slug }}">{{ item.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
